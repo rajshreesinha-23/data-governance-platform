@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card bg-dark text-white p-4 shadow-lg">
+    <h2>{{ resource.name }}</h2>
+    <p>{{ resource.description }}</p>
+
+    <a href="/" class="btn btn-secondary">⬅ Back</a>
+</div>
+
+{% endblock %}
