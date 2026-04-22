@@ -1,0 +1,25 @@
+{% extends 'governance/base.html' %}
+{% block content %}
+<div style="max-width:400px; margin:80px auto;">
+  <div class="card">
+    <h2 style="margin-bottom:20px; text-align:center;">🔐 Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      <div style="margin-bottom:15px;">
+        <label>Username</label><br>
+        <input type="text" name="username" required
+          style="width:100%;padding:10px;margin-top:5px;border:1px solid #ddd;border-radius:4px;">
+      </div>
+      <div style="margin-bottom:15px;">
+        <label>Password</label><br>
+        <input type="password" name="password" required
+          style="width:100%;padding:10px;margin-top:5px;border:1px solid #ddd;border-radius:4px;">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;padding:12px;">Login</button>
+    </form>
+    <p style="text-align:center;margin-top:15px;">
+      No account? <a href="{% url 'signup' %}">Sign Up</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

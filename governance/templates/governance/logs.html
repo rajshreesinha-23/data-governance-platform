@@ -1,0 +1,27 @@
+{% extends 'governance/base.html' %}
+{% block content %}
+<h2 style="margin-bottom:20px;">📋 Access Logs</h2>
+<p style="margin-bottom:15px;">
+  {% if role == 'admin' or role == 'auditor' %}
+    Showing all logs (Admin/Auditor view).
+  {% else %}
+    Showing your personal access logs.
+  {% endif %}
+</p>
+<div class="card">
+  <table>
+    <tr><th>User</th><th>Resource</th><th>Timestamp</th><th>Status</th><th>Reason</th></tr>
+    {% for log in logs %}
+    <tr>
+      <td>{{ log.user.username }}</td>
+      <td>{{ log.resource.name }}</td>
+      <td>{{ log.timestamp|date:"d M Y H:i" }}</td>
+      <td><span class="badge badge-{{ log.status }}">{{ log.status|upper }}</span></td>
+      <td>{{ log.reason|default:"-" }}</td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5" style="text-align:center;">No logs yet.</td></tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}s
