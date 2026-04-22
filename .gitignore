@@ -193,7 +193,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-
+# Custom additions for Django project
+venv/
+env/
+db.sqlite3
+*.log
+media/
+.vscode/
 # Cursor
 #  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
 #  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
